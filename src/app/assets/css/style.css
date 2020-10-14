@@ -1,0 +1,428 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, .app, .app-wrapper {
+    @apply h-full w-full;
+}
+
+body {
+    @apply bg-white tracking-wider tracking-normal;
+}
+
+.app {
+    display: grid;
+    /* .nav width 22rem */
+    grid-template-columns: 22rem 1fr;
+}
+
+.nav {
+    width: 22rem;
+    background: linear-gradient(to left, #f9f9f9, #fff);
+    @apply border-r mr-3 px-3 py-2 text-lg;
+}
+
+.main {
+    padding-left: 2rem;
+    @apply overflow-x-auto flex;
+}
+
+.matched {
+    @apply font-bold;
+}
+
+.hidden_ {
+    display: none !important;
+}
+
+
+/* brand */
+.br {
+    @apply flex items-center w-full mt-2;
+}
+
+.br img {
+    height: 1.4rem;
+    width: 1.4rem;
+    @apply mr-2;
+}
+
+.br p {
+    @apply text-xl;
+}
+
+
+/* search box */
+.sb {
+    @apply mt-16;
+}
+
+.sb-title {
+    @apply flex items-center w-full mb-2;
+}
+
+.sb-title img {
+    height: 1.2rem;
+    width: 1.2rem;
+    @apply mr-1;
+}
+
+.sb-box {
+    @apply flex items-center w-full border rounded py-2 px-3 text-gray-700 leading-tight bg-white;
+}
+
+.sb-box input {
+    /*
+      1.2rem   .sb-box img width
+      0.25rem  .sb-box img ml-1
+      => 1.45rem
+    */
+    width: calc(100% - 1.45rem);
+    @apply bg-white;
+}
+
+.sb-box input,
+.sb-box button:focus {
+    @apply outline-none;
+}
+
+.sb-box img {
+    height: 1.2rem;
+    width: 1.2rem;
+    @apply ml-1;
+}
+
+
+/* window list */
+.wl {
+    @apply mt-8;
+}
+
+.wl-title {
+    @apply flex items-center w-full mb-2;
+}
+
+.wl-title img {
+    height: 1.2rem;
+    width: 1.2rem;
+    @apply mr-1;
+}
+
+.wl-container {
+    height: 22rem;
+    @apply overflow-y-auto pr-2;
+}
+
+.wl-window {
+    @apply mb-2;
+}
+
+.wl-window label {
+    @apply flex items-center text-lg;
+}
+
+.wl-window input[type=checkbox] {
+    @apply ml-1 mr-3 transform scale-125;
+}
+
+.wl-info {
+    display: grid;
+    grid-template-columns: 1fr 2.2rem 3.8rem 2.2rem;
+}
+
+.wl-info div {
+    @apply text-right;
+}
+
+
+/* status bar */
+.st {
+    display: grid;
+    grid-column-gap: .4rem;
+    grid-template-columns: 1.5rem 1fr;
+    bottom: 1rem;
+    @apply items-center absolute;
+}
+
+.st img {
+    height: 1.2rem;
+    width: 1.2rem;
+    @apply animate-spin;
+}
+
+
+/* window */
+.wd {
+    width: 30rem;
+    min-width: 30rem;
+    @apply bg-white m-2 p-3 border shadow;
+}
+
+.wd.expand {
+    width: 50rem;
+    min-width: 50rem;
+}
+
+.wd-container {
+    /*
+      1.5rem   .wh-action button p-3 (0.75rem * 2)
+      1.25rem  .wh-action img height
+      1.5rem   .wm-action button p-3 (0.75rem * 2)
+      1.5rem   .wm-action img height
+      0.5rem   .wd-container mt-2
+      => 6.25rem
+    */
+    height: calc(100% - 6.25rem);
+    @apply overflow-y-auto mt-2;
+}
+
+
+/* window header */
+.wh {
+    display: grid;
+    /*
+      1.5rem   .wh-action button p-3 (0.75rem * 2)
+      1.25rem  .wh-action img width
+      => 2.75rem
+    */
+    grid-template-columns: 1fr 2.75rem;
+    @apply items-center;
+}
+
+.wh-title {
+    @apply text-xl;
+}
+
+.wh-action button {
+    @apply p-3;
+}
+
+.wh-action button:focus {
+    @apply outline-none;
+}
+
+.wh-action button:hover {
+    @apply bg-gray-200 rounded-full;
+}
+
+.wh-action img {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+
+/* window menu */
+.wm {
+    display: grid;
+    /*
+      3.9rem
+        1.4rem  .wm-checker img width
+        1.0rem  .wm-checker mx-2 (0.5rem * 2)
+        1.5rem  .wm-checker p-3 (0.75rem * 2)
+      10.6rem
+        .wm-info (2.8rem 2.2rem 3.4rem 2.2rem)
+    */
+    grid-template-columns: 3.9rem 1fr 10.6rem;
+    @apply items-center;
+}
+
+.wm input[type=checkbox] {
+    grid-row: 1 / span 2;
+    @apply transform scale-150 justify-self-center;
+}
+
+.wm-checker {
+    @apply mx-2 p-3;
+}
+
+.wm-checker:focus {
+    @apply bg-gray-200 rounded-full outline-none;
+}
+
+.wm-checker img {
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+.wm-action {
+    display: grid;
+    /*
+      4rem
+        1.5rem  .wm-action img width
+        1.0rem  .wm-action mx-2 (0.5rem * 2)
+        1.5rem  .wm-action p-3 (0.75rem * 2)
+    */
+    grid-template-columns: 4rem 4rem 1fr;
+    @apply items-center;
+}
+
+.wm-action button {
+    @apply mx-2 p-3;
+}
+
+.wm-action button:hover {
+    @apply bg-gray-200 rounded-full;
+}
+
+.wm-action button:focus {
+    @apply bg-gray-200 rounded-full outline-none;
+}
+
+.wm-action img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.wm-action div {
+    @apply ml-2 text-base;
+}
+
+.wm-action div img {
+    @apply inline;
+}
+
+.wm-info {
+    display: grid;
+    grid-template-columns: 2.8rem 2.2rem 3.4rem 2.2rem;
+    @apply text-right text-base;
+}
+
+
+/* tab */
+.tb {
+    display: grid;
+    grid-template-rows: 1fr 1.2rem;
+    grid-template-columns: 1.8rem 1fr;
+    grid-column-gap: .4rem;
+    @apply items-center bg-white border rounded mx-2 px-2 py-3;
+}
+
+.tb:not(:last-child) {
+    @apply mb-4;
+}
+
+.tb input[type=checkbox] {
+    grid-row: 1 / span 2;
+    @apply transform scale-150 justify-self-center;
+}
+
+.tb-title {
+    display: grid;
+    /*
+      1.2rem  .tb-title img width
+    */
+    grid-template-columns: 1.2rem 1fr;
+    grid-column-gap: .4rem;
+    @apply items-center;
+}
+
+.tb-title:focus {
+    @apply outline-none;
+}
+
+.tb-title:hover div {
+    @apply underline;
+}
+
+.tb-title.no-favicon {
+    grid-template-columns: 1fr;
+}
+
+.tb-title img {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.tb-title div {
+    @apply w-full truncate text-xl text-left;
+}
+
+.tb-url {
+    @apply w-full truncate text-sm text-left text-gray-600;
+}
+
+
+/* window selector */
+.ws-wrapper {
+    background-color: rgba(171, 178, 185, 0.75);
+    @apply h-full w-full absolute top-0 left-0;
+}
+
+.ws {
+    top: 50%;
+    left: 50%;
+    width: 24rem;
+    @apply bg-white absolute transform -translate-x-1/2 -translate-y-1/2 p-4 rounded-lg;
+}
+.ws:focus {
+    @apply outline-none;
+}
+
+.ws-header {
+    display: grid;
+    grid-template-columns: 1fr 1.4rem;  /* ws-header img width 1.4rem */
+    grid-column-gap: .4rem;
+    @apply items-center;
+}
+
+.ws-header div {
+    @apply text-xl;
+}
+
+.ws-header img {
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+.ws-body {
+    @apply relative my-3;
+}
+
+.ws-body label {
+    @apply flex items-center my-2 text-lg cursor-pointer;
+}
+
+.ws-body label input[type=radio] {
+    @apply mr-3 transform scale-125;
+}
+
+.ws-selector {
+    @apply block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight text-lg;
+}
+
+.ws-selector:hover {
+    @apply border-gray-500;
+}
+
+.ws-selector:focus {
+    @apply outline-none shadow-outline;
+}
+
+.ws-selector-aux {
+    @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700;
+}
+
+.ws-selector-aux img {
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+.ws-footer {
+    @apply text-right;
+}
+
+.ws-footer button {
+    @apply py-2 px-4 rounded text-sm;
+}
+
+.ws-footer button:not(:last-child) {
+    @apply mr-2;
+}
+
+.ws-footer button.ok {
+    @apply bg-blue-500 text-white;
+}
+
+.ws-footer button.ok:hover {
+    @apply bg-blue-700;
+}
