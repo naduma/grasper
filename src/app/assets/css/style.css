@@ -26,6 +26,9 @@ body {
     padding-left: 2rem;
     @apply overflow-x-auto flex;
 }
+_:lang(x)::-moz-placeholder, .main {
+    @apply overflow-x-scroll;
+}
 
 .matched {
     @apply font-bold;
@@ -174,6 +177,9 @@ body {
     */
     height: calc(100% - 6.25rem);
     @apply overflow-y-auto mt-2;
+}
+_:lang(x)::-moz-placeholder, .wd-container {
+    @apply overflow-y-scroll;
 }
 
 
