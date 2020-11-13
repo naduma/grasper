@@ -1,6 +1,6 @@
 {
   "name": "grasper",
-  "version": "1.0",
+  "version": "1.1",
   "description": "grasper is a utility for organizing many open tabs.",
   "permissions": [
     "tabs",
